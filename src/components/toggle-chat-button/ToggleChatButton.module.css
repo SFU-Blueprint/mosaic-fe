@@ -1,0 +1,46 @@
+.button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-image: url("../../assets/botButton.png");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.button:hover {
+  transform: scale(1.2);
+}
+
+.chatbotAvatar {
+  width: 80%;
+}
+
+.button:hover .chatbotAvatar {
+  animation: avatarBounce 2s ease-in-out infinite;
+}
+
+@keyframes avatarBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateY(-10px);
+  }
+  40%,
+  60% {
+    transform: translateY(-15px);
+  }
+}

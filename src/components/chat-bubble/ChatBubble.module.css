@@ -1,0 +1,35 @@
+.bubble {
+  margin: 8px 10px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  max-width: 80%;
+  word-wrap: break-word;
+  color: white;
+  font-family: "Arial", sans-serif;
+  overflow: hidden;
+  word-break: break-word;
+}
+
+.userMessage {
+  align-self: flex-end;
+  background-color: #669432;
+  margin: 4px 2px;
+}
+
+.botMessage {
+  align-self: flex-start;
+  color:black;
+  background-color: #fdfdfd;
+  white-space: pre-wrap;
+  border: 2px solid #ACCE84;
+}
+
+.botMessage a {
+  /* color: #84f9fb; */
+  text-decoration: underline;
+}
+
+.messageText {
+  display: inline-block;
+  vertical-align: top;
+}

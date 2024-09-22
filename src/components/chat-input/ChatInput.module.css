@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  padding: 8px;
+  background: transparent; 
+  position: relative; 
+  padding-bottom: 10px;
+}
+
+.container::before {
+  margin-top: 3px;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%; /* This will center the line if it's 85% width */
+  right: 5%;
+  border-top: 1px solid #ccc;
+  width: 90%;
+}
+
+.input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: transparent; 
+  color: #2e2d2d; 
+ 
+}
+
+.input:focus {
+  box-shadow: none;
+}
+
+.button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.sendIcon {
+  height: auto;
+  transition: filter 0.2s;
+}
+
+/* Remove the focus outline for mouse users this might need to be removed! */
+.button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.button:active .sendIcon {
+  filter: brightness(0.65);
+}
