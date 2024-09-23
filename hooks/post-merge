@@ -1,0 +1,47 @@
+#!/bin/sh
+# Git hook that runs `npm run build` after pulling changes, prioritizing /client folder if it exists
+
+# Flag to check if build has run
+BUILD_RUN=false
+
+# Check if the /client directory exists (used for our dev repo)
+if [ -d "client" ]; then
+  cd client
+  echo "Navigated to /client directory."
+
+  # Check if package.json exists in /client
+  if [ -f package.json ]; then
+    echo "Running npm run build inside /client..."
+    npm run build
+
+    # Check if the build was successful
+    if [ $? -ne 0 ]; then
+      echo "Build failed inside /client. Please check for errors."
+      exit 1
+    fi
+
+    # Set flag to indicate build has run
+    BUILD_RUN=true
+  else
+    echo "No package.json found in /client. Skipping build in /client."
+    cd ..
+  fi
+fi
+
+# If the build has not been run in /client, run it in the root
+# Used for handoff repo with no /client directory
+if [ "$BUILD_RUN" = false ]; then
+  echo "Running npm run build in the root directory..."
+  # Check if package.json exists in the root
+  if [ -f package.json ]; then
+    npm run build
+
+    # Check if the build was successful
+    if [ $? -ne 0 ]; then
+      echo "Build failed in the root directory. Please check for errors."
+      exit 1
+    fi
+  else
+    echo "No package.json found in the root directory. Skipping build."
+  fi
+fi
