@@ -3,9 +3,7 @@ import BackgroundContainer from "./components/background-container/BackgroundCon
 
 function App() {
   return (
-    <BackgroundContainer>
-      <ChatPage />
-    </BackgroundContainer>
+    <ChatPage />
   );
 }
 
